@@ -93,7 +93,7 @@ Debug 实验室 2025 新生集训 C 语言编程课程第一部分：配置开�
 
 然后到 **[洛谷](https://www.luogu.com.cn/)** **注册**一个账号，并**登录**你的账号。
 
-点击这个链接加入Virtual Judge 团队： [Debug Freshman 2025](https://vjudge.net/group/debug-freshman?r=ygdmIbkSgOfm8QgPS3KN)。
+点击这个链接加入Virtual Judge 团队： [Debug Freshman 2025 - Virtual Judge](https://vjudge.net/group/debug-freshman-2025?r=ygdmIbkSgOfm8QgPS3KN)。
 
 可能要等管理员同学通过一下，如果太久没有通过记得私信提醒一下我。
 
