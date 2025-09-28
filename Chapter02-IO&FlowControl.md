@@ -2,7 +2,7 @@
 
 ## Chapter02 - IO and Flow Control
 
-本章将正式开始学习 C 语言相关的内容。
+本章将正式开始学习 C 语言相关的内容。内容有关 C 语言的基础语法，基本运算，以及流程控制。
 
 ### Hello, World!
 
@@ -302,6 +302,18 @@ b = 2
 ```
 
 自减运算符`--`也是同理。
+
+除了加减乘除之外，C 语言还提供了一种特殊的运算：**模运算**
+
+```c++
+int a = 10 % 5;
+```
+
+这段代码的意思就是，将 **10 除以 5 的余数赋值给变量 a**。
+
+模运算还具有一些特殊的性质，可以用来避免整形溢出等等都问题，在我的一篇博客中有提到：[ACM Note No.7: 数论](https://www.caoxin.xyz/index.php/archives/11/)
+
+这个运算有什么用呢？我们之后的教程中会提到。
 
 ### Input and Output
 
@@ -673,20 +685,33 @@ if (a == 0 || b == 0) {
 我们再来看下面一段代码：
 
 ```c++
-int a = 0, b = 1;
-// Condition 1
-if (a != 0 || b == 0 && a == 0) {
-    printf("Condition 1 True\n");
+int a = 0, b = 1, c = 1;
+if (a || b && c) {
+    printf("Condition 1 is true\n");
 } else {
-    printf("Condition 1 False\n");
+    printf("Condition 1 is false\n");
 }
-// Condition 2
-if ((a != 0 || b == 0) && a == 0) {
-    printf("Condition 2 True\n");
-} else {
-    printf("Condition 2 False\n");
+
+// 等价于：
+if (a || (b && c)) {
+    printf("Condition 2 is true\n");
 }
 ```
+
+运行结果：
+
+```
+Condition 1 is true
+Condition 2 is true
+```
+
+也就是说，就像加减乘除存在先乘除后加减的运算规则，C 语言内也存在一套运算规则，我们叫它**运算符优先级**。
+
+在上面的例子中， C 语言先执行了 `&&` 运算再执行 `||`。
+
+C 语言详细的运算符优先级可以看这一篇文章：[C语言运算符优先级详解 - 知乎](https://zhuanlan.zhihu.com/p/132668250)
+
+不过在大部分情况下，如果你拿不准运算符优先级，直接使用括号改变优先级就好了（虽然考试可能会直接考你运算符优先级）。
 
 这就是 C 语言中 `if`、`if - else`、`if - eles if - else` 语句的用法。
 
@@ -943,5 +968,29 @@ cnt = 5
 也就是说 `break` 是**退出整个循环**，而 `continue` 则是**退出当前这一次**循环。
 
 同样的，`continue` 语法也适用于 `for` 循环。
+
+此时，我们就可以引出模运算的一些经典用法：
+
+```c++
+// 输入一个数并判断是否是偶数
+int n = 0;
+scanf("%d", &n);
+if (n % 2 == 0) {
+  	// 是偶数就输出 Even
+    printf("Even\n");
+} else {
+  	// 是奇数就输出 Odd
+    printf("Odd\n");
+}
+```
+
+```c++
+// 使得 cnt 以 5 个数为一个周期变化
+int cnt = 0;
+for (int i = 0; i < 100; i++) {
+    printf("cnt = %d", cnt);
+    cnt %= 5;
+}
+```
 
 学到了这里，你就能够轻松地描述任何逻辑了。
