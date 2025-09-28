@@ -37,7 +37,7 @@ int main () {
 
 然后你就会看到类似下面的窗口：
 
-![2-1](./img/Chapter02/2-1.png)
+![2-1](https://gitee.com/LanternCX/picx-images-hosting/raw/master/2025-09-28/2-1.webp)
 
 这句`Hello, World!`就是我们操作电脑在窗口中打印出的文字，而上面这个程序就是你的**第一个 C 语言程序**，同样也是你**控制电脑进行输出**的第一个成功尝试。
 
@@ -606,7 +606,7 @@ int max(int a, int b);
 
 在大部分的现代化 IDE （例如 VS Code）中，使用 Doxygen 风格的文档注注释能使得块注释更为清晰：
 
-![2-2](./img/Chapter02/2-2.png)
+![2-2](https://gitee.com/LanternCX/picx-images-hosting/raw/master/2025-09-28/2-2.webp)
 
 详细的 Doxygen 风格的文档注释介绍在这里：[Doxygen 注释规范（C语言版）| Doxygen_stu ](https://viys.github.io/doxygen_stu/index.html)
 
