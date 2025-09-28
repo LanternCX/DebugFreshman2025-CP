@@ -389,6 +389,92 @@ a
 
 到这里你应该会发现，`scanf()` 的行为和 `getchar()` 不完全一样，因此为了避免这种分析与调试上的麻烦，一般不建议将 `scanf()` 与  `getchar()` 混用，以避免发生一些意料之外的程序行为。
 
+说完了 `scanf()`，让我们重新回到 `printf()`：
+
+首先是定义输出宽度与精度：
+
+```c++
+// 输出 "   12" （右对齐，宽度为5）
+printf("%5d", 12);
+// 输出 "12   " （左对齐）
+printf("%-5d", 12);
+
+// 输出 "3.14" （四舍五入）
+printf("%.2f", 3.14159);
+// 输出 "Hel"，截取这个串的前三个字符，这个我们后面的字符串章节会细讲
+printf("%.3s", "Hello");
+```
+
+我们都知道，`printf()` 中使用 `%d` 输出整数，这说明 `%d` 有别的意义，如果想要使用 `printf()` 输出 `%` 或者 `\` 那就需要使用一些别的格式：
+
+ ```c++
+// 输出 99.9%
+printf("99.9%%\n");
+// 输出 一个反斜杠 \ 和一个换行
+printf("\\\n");
+ ```
+
+此外 `printf()` 还有很多别的用法，可以参考：[C 库函数 – printf() | 菜鸟教程](https://www.runoob.com/cprogramming/c-function-printf.html)
+
+### Math
+
+前面提到，C 语言中的 `math.h` 是一个很常用的库，这里介绍一些常用的 `math` 库函数，不用全部记下来，主要以熟能生巧为主：
+
+```c++
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    // 幂与指数
+    // 计算 2 的 3 次方
+    printf("pow(2, 3) = %.2f\n", pow(2, 3));
+    // 计算平方根 √9
+    printf("sqrt(9) = %.2f\n", sqrt(9));
+    // 计算自然对数 ln(2.718)
+    printf("log(2.718) = %.2f\n", log(2.718));
+    // 计算常用对数 log10(1000)
+    printf("log10(1000) = %.2f\n", log10(1000));
+    // 计算 e^1
+    printf("exp(1) = %.2f\n", exp(1));
+
+    // 三角函数（参数是弧度制）
+    // 计算正弦 sin(π/2)，结果为 1
+    printf("sin(pi/2) = %.2f\n", sin(M_PI/2));
+    // 计算余弦 cos(0)，结果为 1
+    printf("cos(0) = %.2f\n", cos(0));
+    // 计算正切 tan(π/4)，结果为 1
+    printf("tan(pi/4) = %.2f\n", tan(M_PI/4));
+    // 计算反正切 atan(1)，结果约为 π/4
+    printf("atan(1) = %.2f\n", atan(1));
+    
+    // 取整与绝对值
+    // 向上取整 ceil(2.3)，结果为 3
+    printf("ceil(2.3) = %.2f\n", ceil(2.3));
+    // 向下取整 floor(2.7)，结果为 2
+    printf("floor(2.7) = %.2f\n", floor(2.7));
+    // 四舍五入 round(2.5)，结果为 3
+    printf("round(2.5) = %.2f\n", round(2.5));
+
+    // 取浮点数绝对值 fabs(-3.14)，结果为 3.14
+    printf("fabs(-3.14) = %.2f\n", fabs(-3.14));
+    // 取整型绝对值 abs(-5)，结果为 5
+    printf("abs(-5) = %d\n", abs(-5));
+    
+    // 其他
+    // 浮点数取余 fmod(5.3, 2.0)，结果为 1.3
+    printf("fmod(5.3, 2.0) = %.2f\n", fmod(5.3, 2.0));
+    // 计算直角三角形斜边 hypot(3,4)，结果为 5
+    printf("hypot(3, 4) = %.2f\n", hypot(3, 4));
+    // 取较大值 fmax(3.2, 5.6)，结果为 5.6
+    printf("fmax(3.2, 5.6) = %.2f\n", fmax(3.2, 5.6));
+    // 取较小值 fmin(3.2, 5.6)，结果为 3.2
+    printf("fmin(3.2, 5.6) = %.2f\n", fmin(3.2, 5.6));
+    return 0;
+}
+```
+
+更多的数学函数，你可以参照：[math.h | 菜鸟教程](https://www.runoob.com/cprogramming/c-standard-library-math-h.html)
+
 ### Comments
 
 注释是开发过程中极为重要的一部分，有句话说的好：写代码不写注释，连一个月后的自己都看不懂。在完成程序的同时，对一些关键点标记注释是极为重要的。
@@ -802,20 +888,6 @@ while (conditions) {
 除此之外，`do-while` 语句的用法也是类似的：
 
 ```c++
-int a = 10;
-do {
-    printf("a = %d\n", a);
-} while (a--);
-
-int b = 10;
-while (b--) {
-    printf("b = %d\n", b);
-}
-```
-
-可以得到下面的结果：
-
-```c++
 int a = 5;
 // 先打印 a ，再使 a 自减 1
 do {
@@ -994,3 +1066,16 @@ for (int i = 0; i < 100; i++) {
 ```
 
 学到了这里，你就能够轻松地描述任何逻辑了。
+
+###  How to begin?
+
+作为一名 C 语言初学者，同时作为一名生活在 21 世纪的青年，请你一定要学会使用互联网资源学习，不要死读书。
+
+在这里给大家推荐一些很好的线上资源：
+
+1. [C 语言教程 | 菜鸟教程](https://www.runoob.com/cprogramming/c-tutorial.html)：菜鸟教程，非常适合初学者接触：
+2. [CS自学指南](https://csdiy.wiki/)：CS自学指南，非常著名的一部线上教程，涵盖了计算机与电子信息等专业相关的自学指路
+3. [洛谷](https://www.luogu.com.cn/)：算法竞赛（主要是 NOI）的训练平台，平台上的入门题单很适合初学者学习，代码解也很全
+4. [《C Primer Plus(第6版)》中文版PDF下载 - C语言中文网](https://c.biancheng.net/view/0tr7rpk.html)：如果你喜欢看书，C Primer Plus 是一个很不错的选择
+5. [AI](https://zhuanlan.zhihu.com/p/25210214131)：不必多说，神中神
+6. [搜索引擎](https://www.bing.com/)：更是不必多说，Bing 或者 Google 能帮你找到互联网上几乎一切资源
