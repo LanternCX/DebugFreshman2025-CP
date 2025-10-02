@@ -107,7 +107,7 @@ int main() {
 
 ```c++
 printf("Print end of line: next line");
-printf("Print end of line: /n next line");
+printf("Print end of line: \n next line");
 ```
 
 你会发现第一行代码输出的是：
@@ -127,9 +127,9 @@ next line
 
 是的，实际上换行也是一个字符，只不过它的显示方式和普通的字符有些不同罢了。
 
-形如 `/n` 这样的字符在 C 语言中被称为**转义字符**，你可以在 [转义序列 | Microsoft Learn](https://learn.microsoft.com/zh-cn/cpp/c-language/escape-sequences?view=msvc-170) 学习更多有关转义字符的类型。
+形如 `\n` 这样的字符在 C 语言中被称为**转义字符**，你可以在 [转义序列 | Microsoft Learn](https://learn.microsoft.com/zh-cn/cpp/c-language/escape-sequences?view=msvc-170) 学习更多有关转义字符的类型。
 
-建议你在打印一串字符之后，都在字符的末尾加上 `/n` ，这样能让你更好地在控制台中区分不同的输出。
+建议你在打印一串字符之后，都在字符的末尾加上 `\n` ，这样能让你更好地在控制台中区分不同的输出。
 
 ### Data Type
 
@@ -144,7 +144,7 @@ next line
 int number = 1;
 // 定义一个名称为 pi 的小数变量，值为 3.14
 float pi = 3.14;
-// 定义一个名称为 ch 的字符型变量，值为 'A'
+// 定义一个名称为 ch 的字符型变量，值为 'a'
 // 注意这里需要打单引号 ' ', 引号中间只能放一个字符
 char ch = 'a';
 ```
@@ -206,6 +206,14 @@ a = 2, b = 3, add = 5, mul = 6, div = 1, ext = 30
 关于 C 语言整数与整数，小数与整数，小数与小数之间运算的规则十分复杂，我们只需要记住两件事：
 
 第一，整数相除发生的是整除。第二，在一个表达式中尽量只使用一种数据类型。牢记这两点就能帮助你规避掉开发当中会遇到的大部分问题（但是不能保证你通过考试的刁难）。
+
+我们可以做一个实验：
+```c++
+char ch = 'a';
+printf("%d", a);
+```
+
+
 
 这样看来只有这些整型、浮点型、字符型三种数据类型吗？当然不是。我们要知道的是，计算机对数据的表示能力是有限的，也就是说像 `int` 这样的整数类型是有长度上限的。
 
@@ -676,7 +684,7 @@ int main() {
 	printf("false = %d/n", ok);
     // 修改变量 ok 值为真（true）
  	ok = true;
-    printf("true = %d/n", ok);
+  printf("true = %d/n", ok);
 }
 ```
 
@@ -857,7 +865,7 @@ for (init; condition; increment) {
 
 ```c++
 int cnt = 0;
-// 如果 cnt < 10，那么就执行语句 printf("cnt = %d\n", cnt++);
+// 如果 cnt < 5，那么就执行语句 printf("cnt = %d\n", cnt++);
 while (cnt < 5) {
     // 打印 "cnt = %d\n" 之后将 cnt 自增 1
     printf("cnt = %d\n", cnt++);
@@ -942,7 +950,7 @@ int cnt = 0;
 while (true) {
     // 判断 cnt < 5, 为真就执行打印，为假就退出整个循环
 	if (cnt < 5) {
-		printf("cnt = %d\n", cnt);
+		printf("cnt = %d\n", cnt++);
 	} else {
 		break;
 	}
@@ -1062,6 +1070,7 @@ int cnt = 0;
 for (int i = 0; i < 100; i++) {
     printf("cnt = %d", cnt);
     cnt %= 5;
+  	cnt++;
 }
 ```
 
